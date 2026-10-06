@@ -1,0 +1,105 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.util.Scanner;
+class Codechef
+{
+    public static void main(String[] args) throws java.lang.Exception
+    {
+        Scanner scanner = new Scanner(System.in);
+        char respuesta;
+        System.out.println("-------------------------------------------------");
+        System.out.println("Iniciar Partida Si/No" + "\n");
+        respuesta = scanner.next().toLowerCase().charAt(0);
+        System.out.println("\n");
+        int resp2;
+        int resp1;
+        int agua = 100;
+        int minAgua = 1;
+        int comida = 100;
+        int minComida = 1;
+        int Energia = 100;
+        int minEnergia = 1;
+        int Oro = 20;
+        int maxOro = 100;
+        int minOro = 0;
+        int contador = 0;
+        System.out.println("Nivel inicial de Energia: " + Energia + "\n" + "Nivel inicial de Agua: " + agua + "\n" + "nivel inicial de Comida: " + comida + "\n" + "Oro inicial: " + Oro);
+        System.out.println("Que haras?");
+        System.out.println("(1)[Explorar]" + "\n" + "(2)[Descansar]" + "\n" + "(3)[Racionar]" + "\n" + "(4)[Comprar]" + "\n");
+        do {
+            resp1 = scanner.nextInt();
+            switch (resp1) {
+                case 1:
+                    System.out.println("Nivel inicial de Energia: " + Energia + "\n" + "Nivel inicial de Agua: " + agua + "\n" + "nivel inicial de Comida: " + comida + "\n" + "Oro inicial: " + Oro);
+                    System.out.println("\n" + "Dias explorados= " + contador);
+                    int prob1 = (int)(Math.random() * 100);
+                    System.out.println(prob1 + "prob1");
+                    if (prob1 <= 30) {
+                        System.out.println("cuidado, una tormenta de arena te a atrapado!" + "\n" + "-10 de energia");;
+                        Energia = -10;
+                    }
+                    agua = agua - 15;
+                    comida = comida - 10;
+                    Energia = Energia - 20;
+                    Oro = Oro + 10;
+                    System.out.println("Encontraste una bolsa de oro, felicidades!" + "\n" + "+" + Oro + " " + "de oro");
+                    contador++;
+                    System.out.println("(1)[Explorar]" + "\n" + "(2)[Descansar]" + "\n" + "(3)[Racionar]" + "\n" + "(4)[Comprar]" + "\n");
+                    break;
+                case 2:
+                    System.out.println("Nivel actual de Energia: " + Energia + "\n" + "Nivel actual de Agua: " + agua + "\n" + "nivel actual de Comida: " + comida + "\n" + "Oro actual: " + Oro);
+                    System.out.println("\n" + "Dias explorados= " + contador);
+                    agua = agua - 10;
+                    comida = comida - 10;
+                    Energia = Energia + 25;
+                    System.out.println("Descansaste muy bien");
+                    contador++;
+                    System.out.println("(1)[Explorar]" + "\n" + "(2)[Descansar]" + "\n" + "(3)[Racionar]" + "\n" + "(4)[Comprar]" + "\n");
+                    break;
+                case 3:
+                    System.out.println("Nivel actual de Energia: " + Energia + "\n" + "Nivel actual de Agua: " + agua + "\n" + "nivel actual de Comida: " + comida + "\n" + "Oro actual: " + Oro);
+                    System.out.println("\n" + "Dias explorados= " + contador);
+                    agua = agua - 5;
+                    comida = comida - 5;
+                    Energia = Energia - 5;
+                    System.out.println("");
+                    contador++;
+                    System.out.println("(1)[Explorar]" + "\n" + "(2)[Descansar]" + "\n" + "(3)[Racionar]" + "\n" + "(4)[Comprar]" + "\n");
+                    break;
+                case 4:
+                    if (Oro >= 10) {
+                        System.out.println("El vendedor ambulante te ofrece agua o comida" + "\n");
+                        System.out.println("Que quieres comprar?" + "\n" + "(1)[+20 de comida]" + "\n" + "(2)[+20 de agua]");
+                        resp2 = scanner.nextInt();
+                        if (resp2 == 1) {
+                            comida = comida + 20;
+                            System.out.println("le compras comida al vendedor. comida +20" + "\n" + "(1)[Explorar]" + "\n" + "(2)[Descansar]" + "\n" + "(3)[Racionar]" + "\n" + "(4)[Comprar]" + "\n");
+                            Oro = Oro - 10;
+                        } else if (resp2 == 2) {
+                            agua = agua + 20;
+                            System.out.println("le compras agua al vendedor. agua +20" + "\n" + "(1)[Explorar]" + "\n" + "(2)[Descansar]" + "\n" + "(3)[Racionar]" + "\n" + "(4)[Comprar]" + "\n");
+                            Oro = Oro - 10;
+                        } else {
+                            System.out.println("elige otra opcion");
+                        }
+                    }
+                    contador++;
+                    if (Oro < 10) {
+                        System.out.println("no hay plata" + "\n" + "(1)[Explorar]" + "\n" + "(2)[Descansar]" + "\n" + "(3)[Racionar]" + "\n" + "(4)[Comprar]" + "\n");
+                    }
+                    break;
+                default:
+                    System.out.println("opcion no valida");
+                    System.out.println("(1)[Explorar]" + "\n" + "(2)[Descansar]" + "\n" + "(3)[Racionar]" + "\n" + "(4)[Comprar]" + "\n");
+                    break;
+            }
+        }
+
+        while (contador <= 9);
+
+
+
+
+    }
+}
